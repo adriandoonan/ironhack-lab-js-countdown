@@ -39,7 +39,10 @@ function startCountdown() {
 
 
 const toastDiv = document.querySelector('#toast')
-
+const toastCloseButton = toastDiv.querySelector('#close-toast')
+toastCloseButton.addEventListener('click',() => {
+  toastDiv.classList.remove('show')
+})
 
 
 // ITERATION 3: Show Toast
@@ -53,11 +56,4 @@ function showToast(message = 'mmm, warm toast') {
 
     toastDiv.classList.remove('show')
   }, 3000)
-
-
-  const toastCloseButton = toastDiv.querySelector('#close-toast')
-  toastCloseButton.addEventListener('click',() => {
-    toastDiv.classList.remove('show')
-  })
-
 }
