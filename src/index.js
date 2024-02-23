@@ -1,6 +1,7 @@
 const DURATION = 10; // 10 seconds
 let remainingTime = DURATION; // Countdown starting from 10
 let timer = null; // Variable to store the interval
+let toastTimeoutTimer = null
 
 
 
@@ -42,6 +43,7 @@ const toastDiv = document.querySelector('#toast')
 const toastCloseButton = toastDiv.querySelector('#close-toast')
 toastCloseButton.addEventListener('click',() => {
   toastDiv.classList.remove('show')
+  clearTimeout(toastTimeoutTimer)
 })
 
 
@@ -52,7 +54,7 @@ function showToast(message = 'mmm, warm toast') {
   // Your code goes here ...
   toastDiv.querySelector('#toast-message').innerText = message
   toastDiv.classList.add('show')
-  setTimeout(()=> {
+  toastTimeoutTimer = setTimeout(()=> {
 
     toastDiv.classList.remove('show')
   }, 3000)
